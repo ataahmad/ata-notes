@@ -21,4 +21,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:_id', async (req, res) => {
+    try {
+      await Note.findByIdAndRemove(req.params.id);
+      res.redirect('/');
+    } catch (e) {
+      console.log(e);
+      res.redirect('/');
+    }
+  });
+
 module.exports = router;
