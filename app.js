@@ -1,29 +1,3 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// require('dotenv').config()
-// const app = express();
-
-// app.get('/', (req, res) => {
-//     console.log("request hit!");
-//     res.send("We are on the front page of the app!");
-// })
-
-
-// app.set('view engine', 'ejs');
-
-// app.use(express.urlencoded({ extended: false }));
-
-// mongoose.connect(process.env.SERVER, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log("server is started!");
-// })
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 

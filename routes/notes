@@ -23,7 +23,9 @@ router.post('/', async (req, res) => {
 
 router.delete('/:_id', async (req, res) => {
     try {
-      await Note.findByIdAndRemove(req.params.id);
+      // console.log(req.params);
+      // await Note.findByIdAndRemove(req.params.id);
+      // await Note.deleteOne({ _id: req.params.id });
       res.redirect('/');
     } catch (e) {
       console.log(e);
