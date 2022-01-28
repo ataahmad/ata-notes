@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const Note = require('../models/note');
+const path = require('path');
 
 router.get('/new', (req, res) => {
-    res.render('new');
+    // res.render('new');
+    res.sendFile(path.join(__dirname, '../html', 'new.html'));
+
 });
 
+router.get('/login', (req, res) => {
+  // res.render('login');
+  res.sendFile(path.join(__dirname, '../html', 'login.html'));
+
+})
 
 router.post('/', async (req, res) => {
     let note = await new Note({
@@ -23,9 +31,6 @@ router.post('/', async (req, res) => {
 
 router.delete('/:_id', async (req, res) => {
     try {
-      // console.log(req.params);
-      // await Note.findByIdAndRemove(req.params.id);
-      // await Note.deleteOne({ _id: req.params.id });
       res.redirect('/');
     } catch (e) {
       console.log(e);
