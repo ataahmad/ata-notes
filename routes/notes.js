@@ -4,25 +4,25 @@ const Note = require('../models/note');
 const path = require('path');
 
 router.get('/new', (req, res) => {
-    // res.render('new');
     res.sendFile(path.join(__dirname, '../html', 'new.html'));
 
 });
 
-router.get('/login', (req, res) => {
-  // res.render('login');
-  res.sendFile(path.join(__dirname, '../html', 'login.html'));
+router.get('/home', async (req, res) => {
+  console.log("Home Page loaded!");
+  const notes = await Note.find().sort('-createdAt');
+  res.sendFile(path.join(__dirname, '../html', 'home.html'));
 
-})
+});
 
-router.post('/', async (req, res) => {
+router.post('/home', async (req, res) => {
     let note = await new Note({
         title: req.body.title,
         description: req.body.description,
     });
     try {
         note = await note.save();
-        res.redirect('/');
+        res.redirect('/home');
     } catch (e) {
         console.log(e);
         res.render('new');
