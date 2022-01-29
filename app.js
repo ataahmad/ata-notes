@@ -35,9 +35,9 @@ app.use(oidc.router);
 
 app.get('/', async (req, res) => {
   console.log("Home Page loaded!");
-  const notes = await Note.find().sort('-createdAt');
-  // res.render('index', { notes: notes });
-  res.sendFile(path.join(__dirname, '/html', 'index.html'));
+  // const notes = await Note.find().sort('-createdAt');
+  // // res.render('index', { notes: notes });
+  res.sendFile(path.join(__dirname, '/html', 'onload.html'));
 
 });
 
