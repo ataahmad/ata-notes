@@ -11,7 +11,6 @@ const session = require('express-session');
 const { ExpressOIDC } = require('@okta/oidc-middleware');
 
 
-// app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
@@ -35,8 +34,6 @@ app.use(oidc.router);
 
 app.get('/', async (req, res) => {
   console.log("Home Page loaded!");
-  // const notes = await Note.find().sort('-createdAt');
-  // // res.render('index', { notes: notes });
   res.sendFile(path.join(__dirname, '/html', 'onload.html'));
 
 });
